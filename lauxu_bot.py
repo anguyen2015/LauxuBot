@@ -1,6 +1,5 @@
 import discord
-
-TOKEN = '-------------'
+from config.Settings import Settings
 
 client = discord.Client()
 
@@ -21,4 +20,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run(TOKEN)
+client.run(Settings.token)
