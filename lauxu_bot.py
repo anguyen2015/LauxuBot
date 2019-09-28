@@ -1,23 +1,25 @@
 import discord
+from discord.ext import commands
 from config.Settings import Settings
 
+# Import Custom Modules
+from modules.e7_tournament import FightClub
+
 client = discord.Client()
+fightClub = FightClub()
 
-@client.event
-async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == client.user:
-        return
+# Bot Command Prefix
+bot = commands.Bot(command_prefix='!')
 
-    if message.content.startswith('!hello'):
-        msg = 'Hello {0.author.mention}'.format(message)
-        await client.send_message(message.channel, msg)
+@bot.command()
+async def openTournament(ctx, arg):
+    await ctx.send(arg)
 
-@client.event
+@bot.event
 async def on_ready():
     print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
+    print(bot.user.name)
+    print(bot.user.id)
     print('------')
 
-client.run(Settings.token)
+bot.run(Settings.token)
