@@ -1,0 +1,6 @@
+HELP_DICTIONARY = {
+        "Some Command":     "It does this!"
+}
+    
+def getEntry(key):
+    return HELP_DICTIONARY[key]
