@@ -1,2 +1,3 @@
 class Settings:
     token = ''
+    ownerID = ''
