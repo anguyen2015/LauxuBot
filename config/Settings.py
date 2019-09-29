@@ -1,3 +1,5 @@
 class Settings:
+    
     token = ''
     ownerID = ''
+
